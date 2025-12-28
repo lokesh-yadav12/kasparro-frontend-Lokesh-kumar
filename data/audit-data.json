@@ -1,0 +1,212 @@
+{
+  "brand-1": {
+    "brandId": "brand-1",
+    "timestamp": "2025-12-20T10:30:00Z",
+    "modules": {
+      "brandPresence": {
+        "id": "brand-presence",
+        "name": "Brand Presence",
+        "description": "Measures how well your brand appears in AI-generated responses",
+        "score": 78,
+        "status": "good",
+        "insights": [
+          "Brand mentioned in 78% of relevant AI queries",
+          "Strong presence in ChatGPT and Perplexity",
+          "Gemini coverage needs improvement"
+        ],
+        "issues": [
+          {
+            "id": "bp-1",
+            "severity": "medium",
+            "title": "Low Gemini visibility",
+            "description": "Brand appears in only 45% of Gemini responses for target keywords",
+            "impact": "Missing 30% of potential AI-driven traffic"
+          }
+        ],
+        "recommendations": [
+          "Optimize content for Google's Knowledge Graph integration",
+          "Increase structured data markup across key pages",
+          "Build authoritative backlinks from Gemini-indexed sources"
+        ]
+      },
+      "contentQuality": {
+        "id": "content-quality",
+        "name": "Content Quality",
+        "description": "Evaluates content depth, accuracy, and AI-friendliness",
+        "score": 82,
+        "status": "good",
+        "insights": [
+          "Content depth scores above industry average",
+          "Strong factual accuracy across product pages",
+          "Good use of semantic markup"
+        ],
+        "issues": [
+          {
+            "id": "cq-1",
+            "severity": "low",
+            "title": "Thin content on blog posts",
+            "description": "15 blog posts under 800 words lack depth for AI indexing",
+            "impact": "Reduced likelihood of citation in AI responses"
+          }
+        ],
+        "recommendations": [
+          "Expand thin content pieces to 1500+ words",
+          "Add data-backed claims with proper citations",
+          "Include FAQ sections for common queries"
+        ]
+      },
+      "eeat": {
+        "id": "eeat",
+        "name": "E-E-A-T Score",
+        "description": "Experience, Expertise, Authoritativeness, and Trustworthiness signals",
+        "score": 85,
+        "status": "excellent",
+        "insights": [
+          "Strong author credentials across content",
+          "High-quality backlink profile",
+          "Excellent trust signals (SSL, privacy policy, contact info)"
+        ],
+        "issues": [
+          {
+            "id": "eeat-1",
+            "severity": "low",
+            "title": "Missing author bios on 8 articles",
+            "description": "Some content lacks clear authorship attribution",
+            "impact": "Reduced trust signals for AI models"
+          }
+        ],
+        "recommendations": [
+          "Add comprehensive author bios to all content",
+          "Showcase team credentials on about page",
+          "Obtain industry certifications and display them prominently"
+        ]
+      },
+      "semanticRelevance": {
+        "id": "semantic-relevance",
+        "name": "Semantic Relevance",
+        "description": "How well content aligns with user intent and semantic search",
+        "score": 74,
+        "status": "good",
+        "insights": [
+          "Good keyword-to-intent mapping",
+          "Strong topical authority in core areas",
+          "Decent entity recognition coverage"
+        ],
+        "issues": [
+          {
+            "id": "sr-1",
+            "severity": "medium",
+            "title": "Weak coverage of related entities",
+            "description": "Missing connections to 12 related industry entities",
+            "impact": "Lower relevance scores in AI semantic understanding"
+          },
+          {
+            "id": "sr-2",
+            "severity": "high",
+            "title": "Intent mismatch on product pages",
+            "description": "3 product pages optimized for wrong search intent",
+            "impact": "Significantly reduced AI recommendation likelihood"
+          }
+        ],
+        "recommendations": [
+          "Build content clusters around related entities",
+          "Realign product page content with transactional intent",
+          "Implement schema markup for entity relationships"
+        ]
+      },
+      "competitivePosition": {
+        "id": "competitive-position",
+        "name": "Competitive Position",
+        "description": "Your standing vs competitors in AI search results",
+        "score": 68,
+        "status": "needs-improvement",
+        "insights": [
+          "Ranked #3 in AI mentions for primary keywords",
+          "Competitors have stronger citation networks",
+          "Good differentiation in product positioning"
+        ],
+        "issues": [
+          {
+            "id": "cp-1",
+            "severity": "high",
+            "title": "Competitor dominance in AI citations",
+            "description": "Top 2 competitors cited 2.3x more frequently",
+            "impact": "Losing significant market share in AI-driven discovery"
+          },
+          {
+            "id": "cp-2",
+            "severity": "medium",
+            "title": "Weak comparison content",
+            "description": "Lack of comparison pages for key competitor matchups",
+            "impact": "Missing opportunities for direct comparison queries"
+          }
+        ],
+        "recommendations": [
+          "Create comprehensive comparison content",
+          "Build strategic partnerships for co-citations",
+          "Increase PR efforts to boost authoritative mentions"
+        ]
+      },
+      "technicalSeo": {
+        "id": "technical-seo",
+        "name": "Technical SEO",
+        "description": "Technical foundation for AI crawler accessibility",
+        "score": 91,
+        "status": "excellent",
+        "insights": [
+          "Excellent site speed (Core Web Vitals passed)",
+          "Clean crawl structure",
+          "Comprehensive structured data implementation"
+        ],
+        "issues": [
+          {
+            "id": "ts-1",
+            "severity": "low",
+            "title": "Minor mobile usability issues",
+            "description": "2 pages have touch target sizing issues",
+            "impact": "Minimal impact on AI indexing"
+          }
+        ],
+        "recommendations": [
+          "Fix mobile usability issues on identified pages",
+          "Implement breadcrumb schema on all pages",
+          "Add FAQ schema to support pages"
+        ]
+      },
+      "aiReadiness": {
+        "id": "ai-readiness",
+        "name": "AI Readiness",
+        "description": "Overall preparedness for AI-first search era",
+        "score": 76,
+        "status": "good",
+        "insights": [
+          "Good structured data coverage",
+          "Content formatted for AI consumption",
+          "Strong API documentation for potential integrations"
+        ],
+        "issues": [
+          {
+            "id": "ar-1",
+            "severity": "medium",
+            "title": "Missing conversational content",
+            "description": "Limited Q&A format content for voice/chat interfaces",
+            "impact": "Reduced visibility in conversational AI responses"
+          },
+          {
+            "id": "ar-2",
+            "severity": "medium",
+            "title": "No AI-specific optimization",
+            "description": "Content not optimized for AI model training data preferences",
+            "impact": "Lower priority in AI model knowledge bases"
+          }
+        ],
+        "recommendations": [
+          "Create FAQ pages in conversational format",
+          "Optimize content for featured snippet capture",
+          "Implement JSON-LD for all key content types",
+          "Build comprehensive knowledge base with clear hierarchies"
+        ]
+      }
+    }
+  }
+}
