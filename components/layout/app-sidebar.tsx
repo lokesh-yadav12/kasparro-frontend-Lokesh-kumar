@@ -32,15 +32,15 @@ export function AppSidebar() {
   return (
     <>
       {/* Mobile Header */}
-      <div className="lg:hidden sticky top-0 z-50 bg-background border-b px-4 py-3 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold">
+      <div className="lg:hidden sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 px-4 py-3 flex items-center justify-between">
+        <Link href="/" className="text-xl font-bold text-gray-900 dark:text-white">
           Kasparro
         </Link>
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 hover:bg-accent rounded-lg transition"
+            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition text-gray-900 dark:text-white"
             aria-label="Toggle menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -53,26 +53,26 @@ export function AppSidebar() {
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div 
-          className="lg:hidden fixed inset-0 bg-black/50 z-40"
+          className="lg:hidden fixed inset-0 bg-black/50 dark:bg-black/70 z-40"
           onClick={() => setMobileMenuOpen(false)}
         />
       )}
 
       {/* Sidebar */}
       <aside className={cn(
-        "lg:w-64 border-r bg-background lg:min-h-screen",
+        "lg:w-64 border-r border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 lg:min-h-screen",
         "fixed lg:sticky top-0 left-0 h-full z-50 lg:z-auto",
         "transition-transform duration-300 ease-in-out",
         mobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0",
         "w-64"
       )}>
         <div className="p-6 flex items-center justify-between lg:justify-start">
-          <Link href="/" className="text-xl font-bold">
+          <Link href="/" className="text-xl font-bold text-gray-900 dark:text-white">
             Kasparro
           </Link>
           <button
             onClick={() => setMobileMenuOpen(false)}
-            className="lg:hidden p-2 hover:bg-accent rounded-lg transition"
+            className="lg:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition text-gray-900 dark:text-white"
             aria-label="Close menu"
           >
             <X className="w-5 h-5" />
@@ -92,8 +92,8 @@ export function AppSidebar() {
                 className={cn(
                   'flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-all',
                   isActive
-                    ? 'bg-primary text-primary-foreground'
-                    : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'
+                    ? 'bg-blue-600 dark:bg-blue-500 text-white'
+                    : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white'
                 )}
               >
                 <Icon className="w-5 h-5" />
@@ -110,7 +110,7 @@ export function AppSidebar() {
           </div>
           <Link
             href="/"
-            className="flex items-center gap-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition"
+            className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition"
           >
             ← Back to home
           </Link>
@@ -121,7 +121,7 @@ export function AppSidebar() {
           <Link
             href="/"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-2 px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition"
+            className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition"
           >
             ← Back to home
           </Link>
