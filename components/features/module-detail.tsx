@@ -16,30 +16,30 @@ export function ModuleDetail({ module }: ModuleDetailProps) {
       {/* Header */}
       <div className="animate-in slide-in-from-top duration-500">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-2">
-          <h2 className="text-xl sm:text-2xl font-bold">{module.name}</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">{module.name}</h2>
           <div className="transform transition-all hover:scale-110">
             <ScoreBadge score={module.score} status={module.status} />
           </div>
         </div>
-        <p className="text-sm sm:text-base text-muted-foreground">{module.description}</p>
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">{module.description}</p>
       </div>
 
-      <Separator />
+      <Separator className="bg-gray-200 dark:bg-gray-700" />
 
       {/* Key Insights */}
-      <Card className="p-4 sm:p-6 animate-in slide-in-from-left duration-500 delay-100 hover:shadow-lg transition-shadow">
+      <Card className="p-4 sm:p-6 animate-in slide-in-from-left duration-500 delay-100 hover:shadow-lg transition-shadow bg-white dark:bg-gray-800">
         <div className="flex items-center gap-2 mb-4">
-          <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 flex-shrink-0" />
-          <h3 className="font-semibold text-sm sm:text-base">What's working</h3>
+          <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 dark:text-green-400 flex-shrink-0" />
+          <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white">What's working</h3>
         </div>
         <ul className="space-y-2">
           {module.insights.map((insight, index) => (
             <li 
               key={index} 
-              className="text-xs sm:text-sm text-muted-foreground flex items-start gap-2 animate-in fade-in duration-300"
+              className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2 animate-in fade-in duration-300"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <span className="text-green-600 mt-0.5 flex-shrink-0">•</span>
+              <span className="text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0">•</span>
               <span>{insight}</span>
             </li>
           ))}
@@ -48,10 +48,10 @@ export function ModuleDetail({ module }: ModuleDetailProps) {
 
       {/* Issues */}
       {module.issues.length > 0 && (
-        <Card className="p-4 sm:p-6 animate-in slide-in-from-left duration-500 delay-200 hover:shadow-lg transition-shadow">
+        <Card className="p-4 sm:p-6 animate-in slide-in-from-left duration-500 delay-200 hover:shadow-lg transition-shadow bg-white dark:bg-gray-800">
           <div className="flex items-center gap-2 mb-4">
-            <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-600 flex-shrink-0" />
-            <h3 className="font-semibold text-sm sm:text-base">Problems we found</h3>
+            <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-600 dark:text-red-400 flex-shrink-0" />
+            <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white">Problems we found</h3>
           </div>
           <div className="space-y-4">
             {module.issues.map((issue, index) => (
@@ -64,17 +64,17 @@ export function ModuleDetail({ module }: ModuleDetailProps) {
                   <Badge
                     className={cn(
                       'text-xs transition-all hover:scale-105',
-                      issue.severity === 'high' && 'bg-red-100 text-red-800 hover:bg-red-100 dark:bg-red-900 dark:text-red-100',
-                      issue.severity === 'medium' && 'bg-yellow-100 text-yellow-800 hover:bg-yellow-100 dark:bg-yellow-900 dark:text-yellow-100',
-                      issue.severity === 'low' && 'bg-gray-100 text-gray-800 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-100'
+                      issue.severity === 'high' && 'bg-red-100 text-red-800 hover:bg-red-100 dark:bg-red-900/50 dark:text-red-200 dark:border-red-800',
+                      issue.severity === 'medium' && 'bg-yellow-100 text-yellow-800 hover:bg-yellow-100 dark:bg-yellow-900/50 dark:text-yellow-200 dark:border-yellow-800',
+                      issue.severity === 'low' && 'bg-gray-100 text-gray-800 hover:bg-gray-100 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600'
                     )}
                   >
                     {issue.severity}
                   </Badge>
-                  <span className="font-medium text-xs sm:text-sm">{issue.title}</span>
+                  <span className="font-medium text-xs sm:text-sm text-gray-900 dark:text-white">{issue.title}</span>
                 </div>
-                <p className="text-xs sm:text-sm text-muted-foreground mb-1">{issue.description}</p>
-                <p className="text-xs text-muted-foreground/70 italic">Why it matters: {issue.impact}</p>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-1">{issue.description}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-500 italic">Why it matters: {issue.impact}</p>
               </div>
             ))}
           </div>
@@ -82,19 +82,19 @@ export function ModuleDetail({ module }: ModuleDetailProps) {
       )}
 
       {/* Recommendations */}
-      <Card className="p-4 sm:p-6 animate-in slide-in-from-left duration-500 delay-300 hover:shadow-lg transition-shadow">
+      <Card className="p-4 sm:p-6 animate-in slide-in-from-left duration-500 delay-300 hover:shadow-lg transition-shadow bg-white dark:bg-gray-800">
         <div className="flex items-center gap-2 mb-4">
-          <Lightbulb className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 flex-shrink-0" />
-          <h3 className="font-semibold text-sm sm:text-base">What to do about it</h3>
+          <Lightbulb className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400 flex-shrink-0" />
+          <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white">What to do about it</h3>
         </div>
         <ul className="space-y-3">
           {module.recommendations.map((recommendation, index) => (
             <li 
               key={index} 
-              className="text-xs sm:text-sm text-muted-foreground flex items-start gap-2 animate-in fade-in duration-300"
+              className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2 animate-in fade-in duration-300"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <span className="text-blue-600 font-bold mt-0.5 flex-shrink-0">{index + 1}.</span>
+              <span className="text-blue-600 dark:text-blue-400 font-bold mt-0.5 flex-shrink-0">{index + 1}.</span>
               <span>{recommendation}</span>
             </li>
           ))}

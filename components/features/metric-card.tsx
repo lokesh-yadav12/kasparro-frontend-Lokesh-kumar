@@ -14,11 +14,11 @@ export function MetricCard({ title, value, suffix = '', trend, description }: Me
   const TrendIcon = trend === 'up' ? TrendingUp : trend === 'down' ? TrendingDown : Minus;
   
   return (
-    <Card className="p-4 sm:p-6">
+    <Card className="p-4 sm:p-6 dark:bg-gray-800 bg-white">
       <div className="flex items-start justify-between">
         <div className="flex-1 min-w-0">
           <p className="text-xs sm:text-sm text-gray-600 mb-1">{title}</p>
-          <p className="text-2xl sm:text-3xl font-bold text-gray-900 break-words">
+          <p className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white break-words">
             {value}{suffix}
           </p>
           {description && (

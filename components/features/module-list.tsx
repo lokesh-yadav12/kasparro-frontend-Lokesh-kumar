@@ -21,14 +21,14 @@ export function ModuleList({ modules, selectedModule, onSelectModule }: ModuleLi
             'w-full text-left p-3 sm:p-4 rounded-lg border transition-all duration-300',
             'transform hover:scale-[1.02] active:scale-[0.98]',
             selectedModule === key
-              ? 'bg-primary text-primary-foreground border-primary shadow-lg scale-[1.02]'
-              : 'bg-card hover:bg-accent border-border hover:shadow-md'
+              ? 'bg-blue-600 dark:bg-blue-500 text-white border-blue-600 dark:border-blue-500 shadow-lg scale-[1.02]'
+              : 'bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border-gray-200 dark:border-gray-700 hover:shadow-md'
           )}
         >
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
             <span className={cn(
               "font-medium text-xs sm:text-sm transition-all duration-300",
-              selectedModule === key && "font-bold"
+              selectedModule === key ? "font-bold text-white" : "text-gray-900 dark:text-white"
             )}>
               {module.name}
             </span>
@@ -39,7 +39,7 @@ export function ModuleList({ modules, selectedModule, onSelectModule }: ModuleLi
           <p
             className={cn(
               'text-xs leading-relaxed transition-all duration-300',
-              selectedModule === key ? 'text-primary-foreground/80' : 'text-muted-foreground'
+              selectedModule === key ? 'text-white/80' : 'text-gray-600 dark:text-gray-400'
             )}
           >
             {module.description}
