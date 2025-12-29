@@ -33,12 +33,12 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/app/dashboard">
-              <Button size="lg" className="gap-2 text-base w-full sm:w-auto">
+              <Button size="lg" className="gap-2 text-base w-full sm:w-auto hover:scale-105 transition-transform duration-200 active:scale-95">
                 See how it works <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>
             <Link href="/platform">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto hover:scale-105 transition-transform duration-200 active:scale-95">
                 What we do
               </Button>
             </Link>
@@ -58,19 +58,19 @@ export default function HomePage() {
               If your brand isn't in those answers, you're invisible.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-              <Card className="p-4 sm:p-6 bg-white dark:bg-gray-900">
+              <Card className="p-4 sm:p-6 bg-white dark:bg-gray-900 hover:shadow-md transition-all duration-300 hover:scale-102">
                 <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white mb-3">Old way (Traditional SEO)</h3>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                   Rank #1 on Google. Get clicks. Hope people convert. Compete with 10 other results.
                 </p>
               </Card>
-              <Card className="p-4 sm:p-6 border-2 bg-white dark:bg-gray-900 ">
+              <Card className="p-4 sm:p-6 border-2 border-blue-500 bg-white dark:bg-gray-900 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 hover:scale-105">
                 <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white mb-3">New way (AI-SEO)</h3>
                 <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
                   Get cited by AI models. Be the answer, not a link. Build trust signals AI systems recognize.
                 </p>
               </Card>
-              <Card className="p-4 sm:p-6 bg-white dark:bg-gray-900 sm:col-span-2 lg:col-span-1">
+              <Card className="p-4 sm:p-6 bg-white dark:bg-gray-900 sm:col-span-2 lg:col-span-1 hover:shadow-md transition-all duration-300 hover:scale-102">
                 <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white mb-3">Why it matters</h3>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                   ChatGPT has 100M+ users. Perplexity processes 500M queries/month. That's where your customers are.
@@ -95,8 +95,11 @@ export default function HomePage() {
               {modules.map((module, index) => {
                 const Icon = module.icon;
                 return (
-                  <Card key={index} className="p-4 sm:p-6 hover:shadow-md dark:hover:shadow-blue-500/10 transition-shadow bg-white dark:bg-gray-800">
-                    <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-blue-600 dark:text-blue-400 mb-3 sm:mb-4" />
+                  <Card 
+                    key={index} 
+                    className="p-4 sm:p-6 hover:shadow-lg dark:hover:shadow-blue-500/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1 cursor-pointer bg-white dark:bg-gray-800 group"
+                  >
+                    <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-blue-600 dark:text-blue-400 mb-3 sm:mb-4 transition-transform duration-300 group-hover:scale-110" />
                     <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white mb-2">{module.name}</h3>
                     <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{module.description}</p>
                   </Card>
@@ -115,8 +118,8 @@ export default function HomePage() {
               How it works
             </h2>
             <div className="space-y-6 sm:space-y-8">
-              <div className="flex gap-4 sm:gap-6">
-                <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 dark:bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold text-base sm:text-lg">
+              <div className="flex gap-4 sm:gap-6 group hover:translate-x-2 transition-transform duration-300">
+                <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 dark:bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold text-base sm:text-lg group-hover:scale-110 transition-transform duration-300">
                   1
                 </div>
                 <div>
@@ -126,8 +129,8 @@ export default function HomePage() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-4 sm:gap-6">
-                <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 dark:bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold text-base sm:text-lg">
+              <div className="flex gap-4 sm:gap-6 group hover:translate-x-2 transition-transform duration-300">
+                <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 dark:bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold text-base sm:text-lg group-hover:scale-110 transition-transform duration-300">
                   2
                 </div>
                 <div>
@@ -137,8 +140,8 @@ export default function HomePage() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-4 sm:gap-6">
-                <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 dark:bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold text-base sm:text-lg">
+              <div className="flex gap-4 sm:gap-6 group hover:translate-x-2 transition-transform duration-300">
+                <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 dark:bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold text-base sm:text-lg group-hover:scale-110 transition-transform duration-300">
                   3
                 </div>
                 <div>
@@ -148,8 +151,8 @@ export default function HomePage() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-4 sm:gap-6">
-                <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 dark:bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold text-base sm:text-lg">
+              <div className="flex gap-4 sm:gap-6 group hover:translate-x-2 transition-transform duration-300">
+                <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 dark:bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold text-base sm:text-lg group-hover:scale-110 transition-transform duration-300">
                   4
                 </div>
                 <div>
@@ -175,7 +178,7 @@ export default function HomePage() {
               Most brands have no idea if they're showing up in AI answers. Takes 2 minutes to find out.
             </p>
             <Link href="/app/dashboard">
-              <Button size="lg" className="gap-2 w-full sm:w-auto">
+              <Button size="lg" className="gap-2 w-full sm:w-auto hover:scale-105 transition-transform duration-200 active:scale-95">
                 Check your AI visibility <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>

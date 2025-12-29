@@ -5,25 +5,88 @@ import { MetricCard } from '@/components/features/metric-card';
 import { Card } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { DashboardSkeleton } from '@/components/features/dashboard-skeleton';
-import brandsData from '@/data/brands.json';
-import snapshotsData from '@/data/snapshots.json';
+import { api } from '@/lib/api';
 import type { Brand, BrandSnapshot } from '@/types';
-
-const brands = brandsData as Brand[];
-const snapshots = snapshotsData as BrandSnapshot[];
+import { AlertCircle } from 'lucide-react';
 
 export default function DashboardPage() {
-  const [selectedBrandId, setSelectedBrandId] = useState<string>(brands[0].id);
+  const [brands, setBrands] = useState<Brand[]>([]);
+  const [snapshots, setSnapshots] = useState<BrandSnapshot[]>([]);
+  const [selectedBrandId, setSelectedBrandId] = useState<string>('');
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   
+  // Load initial data
   useEffect(() => {
-    // Simulate loading
+    const loadData = async () => {
+      setIsLoading(true);
+      setError(null);
+      
+      const [brandsResult, snapshotsResult] = await Promise.all([
+        api.getBrands(),
+        api.getSnapshots(),
+      ]);
+      
+      if (brandsResult.error) {
+        setError(brandsResult.error);
+        setIsLoading(false);
+        return;
+      }
+      
+      if (snapshotsResult.error) {
+        setError(snapshotsResult.error);
+        setIsLoading(false);
+        return;
+      }
+      
+      if (brandsResult.data && snapshotsResult.data) {
+        setBrands(brandsResult.data);
+        setSnapshots(snapshotsResult.data);
+        setSelectedBrandId(brandsResult.data[0]?.id || '');
+      }
+      
+      setIsLoading(false);
+    };
+    
+    loadData();
+  }, []);
+  
+  // Simulate loading when switching brands
+  useEffect(() => {
+    if (!selectedBrandId) return;
+    
     setIsLoading(true);
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 800);
+    }, 300);
     return () => clearTimeout(timer);
   }, [selectedBrandId]);
+  
+  if (isLoading) {
+    return <DashboardSkeleton />;
+  }
+  
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-4">
+        <Card className="p-8 max-w-md w-full">
+          <div className="flex flex-col items-center text-center">
+            <div className="w-16 h-16 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center mb-4">
+              <AlertCircle className="w-8 h-8 text-red-600 dark:text-red-400" />
+            </div>
+            <h2 className="text-xl font-bold mb-2">Failed to load dashboard</h2>
+            <p className="text-sm text-muted-foreground mb-6">{error}</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90"
+            >
+              Try again
+            </button>
+          </div>
+        </Card>
+      </div>
+    );
+  }
   
   const selectedBrand = brands.find(b => b.id === selectedBrandId);
   const snapshot = snapshots.find(s => s.brandId === selectedBrandId);
@@ -39,10 +102,6 @@ export default function DashboardPage() {
     hour: '2-digit',
     minute: '2-digit',
   });
-
-  if (isLoading) {
-    return <DashboardSkeleton />;
-  }
 
   return (
     <div className="p-4 sm:p-6 lg:p-8 animate-in fade-in duration-500 bg-white dark:bg-gray-900 min-h-screen">
