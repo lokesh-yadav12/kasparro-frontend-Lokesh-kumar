@@ -11,6 +11,21 @@ interface ModuleDetailProps {
 }
 
 export function ModuleDetail({ module }: ModuleDetailProps) {
+  // Validate module data
+  if (!module) {
+    return (
+      <Card className="p-8 text-center">
+        <AlertCircle className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+        <p className="text-gray-600 dark:text-gray-400">No module data available</p>
+      </Card>
+    );
+  }
+
+  // Ensure arrays exist
+  const insights = module.insights || [];
+  const issues = module.issues || [];
+  const recommendations = module.recommendations || [];
+
   return (
     <div className="space-y-4 sm:space-y-6 animate-in fade-in duration-500">
       {/* Header */}
@@ -27,34 +42,40 @@ export function ModuleDetail({ module }: ModuleDetailProps) {
       <Separator className="bg-gray-200 dark:bg-gray-700" />
 
       {/* Key Insights */}
-      <Card className="p-4 sm:p-6 animate-in slide-in-from-left duration-500 delay-100 hover:shadow-lg transition-shadow bg-white dark:bg-gray-800">
-        <div className="flex items-center gap-2 mb-4">
-          <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 dark:text-green-400 flex-shrink-0" />
-          <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white">What's working</h3>
-        </div>
-        <ul className="space-y-2">
-          {module.insights.map((insight, index) => (
-            <li 
-              key={index} 
-              className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2 animate-in fade-in duration-300"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <span className="text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0">•</span>
-              <span>{insight}</span>
-            </li>
-          ))}
-        </ul>
-      </Card>
+      {insights.length > 0 ? (
+        <Card className="p-4 sm:p-6 animate-in slide-in-from-left duration-500 delay-100 hover:shadow-lg transition-shadow bg-white dark:bg-gray-800">
+          <div className="flex items-center gap-2 mb-4">
+            <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 dark:text-green-400 flex-shrink-0" />
+            <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white">What's working</h3>
+          </div>
+          <ul className="space-y-2">
+            {insights.map((insight, index) => (
+              <li 
+                key={index} 
+                className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2 animate-in fade-in duration-300"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <span className="text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0">•</span>
+                <span>{insight}</span>
+              </li>
+            ))}
+          </ul>
+        </Card>
+      ) : (
+        <Card className="p-4 sm:p-6 bg-gray-50 dark:bg-gray-800/50">
+          <p className="text-sm text-gray-500 dark:text-gray-400 text-center">No insights available yet</p>
+        </Card>
+      )}
 
       {/* Issues */}
-      {module.issues.length > 0 && (
+      {issues.length > 0 && (
         <Card className="p-4 sm:p-6 animate-in slide-in-from-left duration-500 delay-200 hover:shadow-lg transition-shadow bg-white dark:bg-gray-800">
           <div className="flex items-center gap-2 mb-4">
             <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-600 dark:text-red-400 flex-shrink-0" />
             <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white">Problems we found</h3>
           </div>
           <div className="space-y-4">
-            {module.issues.map((issue, index) => (
+            {issues.map((issue, index) => (
               <div 
                 key={issue.id} 
                 className="border-l-4 border-red-200 dark:border-red-900 pl-3 sm:pl-4 animate-in fade-in duration-300"
@@ -82,24 +103,30 @@ export function ModuleDetail({ module }: ModuleDetailProps) {
       )}
 
       {/* Recommendations */}
-      <Card className="p-4 sm:p-6 animate-in slide-in-from-left duration-500 delay-300 hover:shadow-lg transition-shadow bg-white dark:bg-gray-800">
-        <div className="flex items-center gap-2 mb-4">
-          <Lightbulb className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400 flex-shrink-0" />
-          <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white">What to do about it</h3>
-        </div>
-        <ul className="space-y-3">
-          {module.recommendations.map((recommendation, index) => (
-            <li 
-              key={index} 
-              className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2 animate-in fade-in duration-300"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <span className="text-blue-600 dark:text-blue-400 font-bold mt-0.5 flex-shrink-0">{index + 1}.</span>
-              <span>{recommendation}</span>
-            </li>
-          ))}
-        </ul>
-      </Card>
+      {recommendations.length > 0 ? (
+        <Card className="p-4 sm:p-6 animate-in slide-in-from-left duration-500 delay-300 hover:shadow-lg transition-shadow bg-white dark:bg-gray-800">
+          <div className="flex items-center gap-2 mb-4">
+            <Lightbulb className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400 flex-shrink-0" />
+            <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white">What to do about it</h3>
+          </div>
+          <ul className="space-y-3">
+            {recommendations.map((recommendation, index) => (
+              <li 
+                key={index} 
+                className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2 animate-in fade-in duration-300"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <span className="text-blue-600 dark:text-blue-400 font-bold mt-0.5 flex-shrink-0">{index + 1}.</span>
+                <span>{recommendation}</span>
+              </li>
+            ))}
+          </ul>
+        </Card>
+      ) : (
+        <Card className="p-4 sm:p-6 bg-gray-50 dark:bg-gray-800/50">
+          <p className="text-sm text-gray-500 dark:text-gray-400 text-center">No recommendations available yet</p>
+        </Card>
+      )}
     </div>
   );
 }

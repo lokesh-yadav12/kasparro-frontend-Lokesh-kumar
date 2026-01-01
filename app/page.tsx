@@ -81,8 +81,71 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Core Modules */}
+      {/* Real Examples */}
       <section className="py-16 sm:py-20 md:py-28">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Real examples from AI models
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 sm:mb-12 max-w-2xl">
+              Here's what we're seeing when people ask AI about different industries.
+            </p>
+            <div className="space-y-6">
+              <Card className="p-6 bg-white dark:bg-gray-800 border-l-4 border-green-500">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="text-2xl">✓</div>
+                  <div>
+                    <p className="font-semibold text-gray-900 dark:text-white mb-2">Query: "Best project management tools for remote teams"</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                      <span className="font-medium">ChatGPT cited:</span> Asana, Monday.com, Notion
+                    </p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      These brands show up because they have strong E-E-A-T signals, detailed feature documentation, 
+                      and consistent mentions across trusted sources. They're not just ranking—they're being recommended.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+              
+              <Card className="p-6 bg-white dark:bg-gray-800 border-l-4 border-red-500">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="text-2xl">✗</div>
+                  <div>
+                    <p className="font-semibold text-gray-900 dark:text-white mb-2">Query: "Reliable cloud backup solutions for small business"</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                      <span className="font-medium">Perplexity cited:</span> Backblaze, Carbonite, IDrive
+                    </p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      Notice who's missing? Dozens of backup companies with good Google rankings but weak trust signals. 
+                      They rank on page 1 but AI models don't mention them. That's the gap we help you close.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-6 bg-white dark:bg-gray-800 border-l-4 border-yellow-500">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="text-2xl">⚠</div>
+                  <div>
+                    <p className="font-semibold text-gray-900 dark:text-white mb-2">Query: "How to choose accounting software"</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                      <span className="font-medium">Claude mentioned:</span> QuickBooks, Xero, FreshBooks (with caveats)
+                    </p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      Interesting part: AI added context about pricing transparency and customer support quality. 
+                      Brands with clear documentation and honest reviews got better positioning. The ones with vague marketing speak got warnings attached.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Modules */}
+      <section className="bg-gray-50 dark:bg-gray-800 py-16 sm:py-20 md:py-28">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -111,7 +174,7 @@ export default function HomePage() {
       </section>
 
       {/* How It Works */}
-      <section className="bg-gray-50 dark:bg-gray-800 py-16 sm:py-20 md:py-28">
+      <section className="py-16 sm:py-20 md:py-28">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 sm:mb-12">
